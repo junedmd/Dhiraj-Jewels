@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaSearch, FaShoppingCart } from 'react-icons/fa';
 import logo from "./logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -26,6 +27,7 @@ const Navbar = () => {
                         <a href="/gold" className="hover:text-[#861010] transition">Gold</a>
                         <a href="/diamond" className="hover:text-[#861010] transition">Diamond</a>
                         <a href="/help" className="hover:text-[#861010] transition">Help</a>
+                         <Link to={"/productpage"}> Products</Link>
                     </nav>
 
 

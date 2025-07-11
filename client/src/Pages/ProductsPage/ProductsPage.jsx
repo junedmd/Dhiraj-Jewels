@@ -28,33 +28,33 @@ function ProductsPages() {
   return (
     <>
       <Navbar />
-      <div className="max-w-7xl mx-auto p-4">
-        <h2 className="text-3xl font-bold text-center mb-6">All Products</h2>
+      <div className="max-w-7xl mx-auto px-4 py-8 bg-gray-50 min-h-screen">
+        <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">All Products</h2>
 
         {loading ? (
-          <p className="text-center">Loading...</p>
+          <p className="text-center text-gray-600">Loading...</p>
         ) : products.length === 0 ? (
-          <p className="text-center">No products found.</p>
+          <p className="text-center text-gray-600 ">No products found.</p>
         ) : (
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {products.map((product) => (
-              <div key={product._id} className="bg-white shadow-md rounded-md overflow-hidden">
+              <div key={product._id} className="bg-white shadow-lg rounded-xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 border border-gray-200">
                 {product.image && (
                   <img
                     src={Array.isArray(product.image) ? product.image[0] : product.image}
                     alt={product.title}
-                    className="w-full h-60 object-cover object-center rounded-t-md"
+                    className="w-full h-52 object-cover object-center rounded-t-md"
                   />
                 )}
 
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold">{product.title}</h3>
-                  <p className="text-gray-600 text-sm">{product.description}</p>
-                  <div className="mt-2 text-blue-600 font-semibold">₹{product.price}</div>
-                  <p className="text-sm text-gray-500">Units: {product.unit}</p>
+                <div className="p-4 space-y-1">
+                  <h3 className="text-lg font-semibold text-gray-800">{product.title}</h3>
+                  <p className="text-gray-600 text-sm line-clamp-2">{product.description}</p>
+                  <div className="text-blue-600 font-bold text-sm">₹{product.price}</div>
+                  <p className="text-xs text-gray-500">Units: {product.unit}</p>
                   <Link
                     to={`/edit-product/${product._id}`}
-                    className="text-blue-500 hover:underline text-sm mt-2 block"
+                    className="inline-block mt-2 text-sm px-3 py-1 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition"
                   >
                     Edit
                   </Link>
